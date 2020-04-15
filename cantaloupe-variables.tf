@@ -17,7 +17,7 @@ variable "cantaloupe_deployment_replicas" {
 variable "cantaloupe_deployment_labels" {
   type = map(string)
   default = {
-    app = "cantaloupe_deployment"
+    app = "cantaloupe"
   }
 }
 

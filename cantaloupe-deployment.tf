@@ -42,7 +42,7 @@ resource "kubernetes_deployment" "cantaloupe" {
 
           env_from {
             secret_ref {
-              name = "${kubernetes_secret.cantaloupe_env_secrets.metadata[0].name != null ? kubernetes_secret.cantaloupe_env_secrets.metadata[0].name : null}" 
+              name = kubernetes_secret.cantaloupe_env_secrets.metadata[0].name != null ? kubernetes_secret.cantaloupe_env_secrets.metadata[0].name : null
             }
           }
 

@@ -46,6 +46,11 @@ variable "cantaloupe_deployment_container_port" {
   default = 1
 }
 
+variable "image_pull_secrets" {
+  type = string
+  default = "pull-secrets"
+}
+
 ###############################################################################################################
 # The following default variables represent a subset of environment variables to override the defaults.
 # It assumes configuring an S3 bucket for cache and as a source. Please override the map in a external

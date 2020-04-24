@@ -8,7 +8,7 @@ branches:
 
 before_install:
   - export TERRAFORM_VERSION="0.12.20"
-  - curl https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip -o /usr/local/bin/terraform
+  - curl "https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip" -o /usr/local/bin/terraform
   - chmod +x !$
 
 script:

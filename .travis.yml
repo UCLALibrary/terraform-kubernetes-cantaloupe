@@ -10,7 +10,7 @@ before_install:
   - export TERRAFORM_VERSION="0.12.20"
   - mkdir bin
   - wget "https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip" -O bin/terraform
-  - chmod +x !$
+  - chmod +x bin/terraform
   - export PATH="$(pwd)/bin:$PATH"
 
 script:

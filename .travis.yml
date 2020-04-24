@@ -15,6 +15,7 @@ before_install:
 
 script:
   - which terraform
+  - terraform version
   - pwd
   - terraform init -backend=false
   - terraform validate

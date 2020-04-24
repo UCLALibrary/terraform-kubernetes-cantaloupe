@@ -27,6 +27,17 @@ resource "kubernetes_deployment" "cantaloupe" {
           name  = var.cantaloupe_deployment_container_name
           image_pull_policy = var.cantaloupe_deployment_container_image_pull_policy
 
+          resources {
+            limits {
+              cpu = var.cantaloupe_deployment_cpu_limit
+              memory = var.cantaloupe_deployment_memory_limit
+            }
+            requests {
+              cpu = var.cantaloupe_deployment_cpu_request
+              memory = var.cantaloupe_deployment_memory_request
+            }
+          }
+
           port {
             container_port = var.cantaloupe_deployment_container_port
           }

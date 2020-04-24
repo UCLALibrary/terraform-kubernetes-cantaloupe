@@ -99,6 +99,26 @@ variable "cantaloupe_deployment_admin_password" {
   default = "enteryouradminpassword"
 }
 
+variable "cantaloupe_deployment_cpu_limit" {
+  type = string
+  default = "1"
+}
+
+variable "cantaloupe_deployment_cpu_request" {
+  type = string
+  default = "0.5"
+}
+
+variable "cantaloupe_deployment_memory_limit" {
+  type = string
+  default = "1024Mi"
+}
+
+variable "cantaloupe_deployment_memory_request" {
+  type = string
+  default = "256Mi"
+}
+
 locals {
   cantaloupe_deployment_container_image_full_url = "${var.cantaloupe_deployment_container_image_url}:${var.cantaloupe_deployment_container_image_version}"
 }

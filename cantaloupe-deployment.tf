@@ -23,6 +23,8 @@ resource "kubernetes_deployment" "cantaloupe" {
         }
 
         container {
+          command = ["docker-entrypoint.sh"]
+          args = ["sh", "-c", "java -Dcantaloupe.config=$CONFIG_FILE -jar /usr/local/cantaloupe/cantaloupe-*.war"]
           image = local.cantaloupe_deployment_container_image_full_url
           name  = var.cantaloupe_deployment_container_name
           image_pull_policy = var.cantaloupe_deployment_container_image_pull_policy

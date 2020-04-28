@@ -1,0 +1,26 @@
+language: minimal
+
+# We want all PRs built but only merges on master branch and tags under semantic version scheme
+branches:
+  only:
+  - master
+  - /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(-(0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(\.(0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*)?(\+[0-9a-zA-Z-]+(\.[0-9a-zA-Z-]+)*)?$/
+
+before_install:
+  - export TERRAFORM_VERSION="0.12.20"
+  - wget "https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
+  - mkdir bin && unzip *.zip -d bin
+  - chmod +x bin/terraform
+  - export PATH="$(pwd)/bin:$PATH"
+
+script:
+  - terraform version
+  - terraform init -backend=false
+  - terraform validate
+
+notifications:
+  email:
+    recipients:
+      - avuong@cachemeoutside.io
+    on_success: change
+    on_failure: change

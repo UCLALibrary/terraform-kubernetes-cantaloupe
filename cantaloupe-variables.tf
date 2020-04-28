@@ -28,7 +28,7 @@ variable "cantaloupe_deployment_container_image_url" {
 
 variable "cantaloupe_deployment_container_image_version" {
   type = string
-  default = "4.1.4"
+  default = "4.1.5"
 }
 
 variable "cantaloupe_deployment_container_name" {
@@ -80,7 +80,7 @@ variable "cantaloupe_deployment_container_env" {
     CANTALOUPE_S3SOURCE_ENDPOINT = "s3.us-west-2.amazonaws.com"
     CANTALOUPE_S3SOURCE_BASICLOOKUPSTRATEGY_PATH_SUFFIX = ".jpx"
     CANTALOUPE_SOURCE_STATIC = "S3Source"
-    JAVA_HEAP_SIZE = "4g"
+    JAVA_HEAP_SIZE = "1g"
   }
 }
 
@@ -116,7 +116,7 @@ variable "cantaloupe_deployment_memory_limit" {
 
 variable "cantaloupe_deployment_memory_request" {
   type = string
-  default = "256Mi"
+  default = "128Mi"
 }
 
 locals {
